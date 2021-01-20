@@ -1,0 +1,36 @@
+Generic type ::
+
+Generic method ::
+
+Diamond operator :: 
+
+Type parameter ::
+
+Parameterized type ::
+
+Raw type ::
+
+Type erasure ::
+
+Bounded type parameters :: 
+
+Type inference ::
+
+Target typing :: 
+
+Wildcards ::
+
+Bounded wildcards ::
+
+Unbounded wildcards ::
+
+Erasure of generic types ::
+
+Generic methods ::
+
+Bridge methods ::
+
+Non-reifiable types ::
+
+@SafeVarargs :: 
+
