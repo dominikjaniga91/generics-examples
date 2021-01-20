@@ -2,6 +2,7 @@ package generic.methods;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Objects;
 
 class Person implements Comparable<Person> {
 
@@ -32,6 +33,19 @@ class Person implements Comparable<Person> {
     @Override
     public String toString() {
         return String.format("Name: %s, Surname: %s", name, surname);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return id == person.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, surname, dateOfBirth);
     }
 }
 

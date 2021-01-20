@@ -2,6 +2,7 @@ package generic.methods;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Objects;
 
 class Grade implements Comparable<Grade> {
 
@@ -30,6 +31,19 @@ class Grade implements Comparable<Grade> {
     @Override
     public String toString() {
         return String.format("Title: %s", title);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Grade grade = (Grade) o;
+        return id == grade.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, dateOfIssuance);
     }
 }
 
