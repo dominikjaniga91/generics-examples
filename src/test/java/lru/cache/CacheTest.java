@@ -1,6 +1,7 @@
 package lru.cache;
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.stream.IntStream;
@@ -8,10 +9,15 @@ import java.util.stream.IntStream;
 @Test(groups = "LRUCache")
 public class CacheTest {
 
+    private Cache<Integer, Integer> cache;
+
+    @BeforeMethod
+    public void setUp() {
+       cache = new Cache<>(5);
+    }
+
     @Test
     public void emptyShouldReturnTrue_whenCacheHasNoElements() {
-        //given
-        Cache<Integer, Integer> cache = new Cache<>(10);
 
         //when
         boolean actual = cache.empty();
@@ -23,63 +29,50 @@ public class CacheTest {
     @Test
     public void sizeShouldReturnZero_afterCreateNewCache() {
 
-        //given
-        Cache<Integer, Integer> cache = new Cache<>(10);
-
         //when
         int actual = cache.size();
 
         //then
-        Assert.assertEquals(actual, 0, "Store should return value after add pair");
+        Assert.assertEquals(actual, 0, "Size should be equals to zero");
     }
 
     @Test
-    public void shouldReturnSizeOne_afterStorePairToCache() {
-
-        //given
-        Cache<Integer, Integer> cache = new Cache<>(10);
+    public void sizeShouldReturnOne_afterStorePairToCache() {
 
         //when
         cache.store(1, 2);
         int actual = cache.size();
 
         //then
-        Assert.assertEquals(actual, 1, "Store should return value after add pair");
+        Assert.assertEquals(actual, 1, "Size should be equals to one");
     }
 
     @Test
-    public void shouldReturnSizeFive_afterStoreFivePairsToCache() {
-
-        //given
-        Cache<Integer, Integer> cache = new Cache<>(10);
+    public void sizeShouldReturnFive_afterStoreFivePairsToCache() {
 
         //when
         IntStream.rangeClosed(1, 5).forEach(i -> cache.store(i, i));
         int actual = cache.size();
 
         //then
-        Assert.assertEquals(actual, 5, "Store should return size equals to five ");
+        Assert.assertEquals(actual, 5, "Size should be equals to five");
     }
 
     @Test
-    public void shouldReturnSizeFive_afterStore10PairsToCache() {
-
-        //given
-        Cache<Integer, Integer> cache = new Cache<>(5);
+    public void  sizeShouldReturnFive_afterStore10PairsToCache() {
 
         //when
         IntStream.rangeClosed(1, 10).forEach(i -> cache.store(i, i));
         int actual = cache.size();
 
         //then
-        Assert.assertEquals(actual, 5, "Store should return size equals to five ");
+        Assert.assertEquals(actual, 5, "Size should be equals to five");
     }
 
     @Test
     public void seekShouldReturnValueAssociatedWithKey() {
 
         //given
-        Cache<Integer, Integer> cache = new Cache<>(5);
         int key = 5;
         int value = 10;
         cache.store(key, value);
@@ -88,20 +81,17 @@ public class CacheTest {
         int actual = cache.seek(key);
 
         //then
-        Assert.assertEquals(actual, value, "Seek should return value equals to " + value);
+        Assert.assertEquals(actual, value, "Value should be equals to " + value);
     }
 
     @Test
     public void seekShouldReturnNull_whenKeyDoesNoeExist() {
 
-        //given
-        Cache<Integer, Integer> cache = new Cache<>(5);
-
         //when
         Integer actual = cache.seek(5);
 
         //then
-        Assert.assertNull(actual, "Seek should return value equals to -1");
+        Assert.assertNull(actual, "Value should be equals to null");
     }
 
 
@@ -109,7 +99,6 @@ public class CacheTest {
     public void shouldReturnFirstKeyEqualsToSix_afterAddTenPairs() {
 
         //given
-        Cache<Integer, Integer> cache = new Cache<>(5);
         int expected = 6;
 
         //when
@@ -124,7 +113,6 @@ public class CacheTest {
     public void shouldReturnLastKeyEqualsToTen_afterAddTenPairs() {
 
         //given
-        Cache<Integer, Integer> cache = new Cache<>(5);
         int expected = 10;
 
         //when
