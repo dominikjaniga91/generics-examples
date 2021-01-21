@@ -36,6 +36,9 @@ public class MyStack<E> {
     }
 
     public E peek() {
+        if (size == 0) {
+            throw new EmptyStackException();
+        }
         return elements[size - 1];
     }
 }

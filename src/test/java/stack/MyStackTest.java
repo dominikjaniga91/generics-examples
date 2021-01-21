@@ -98,4 +98,10 @@ public class MyStackTest {
         Assert.assertEquals(actual, STACK_ELEMENT, "Peek method should return last element");
     }
 
+    @Test(expectedExceptions = EmptyStackException.class)
+    public void peekShouldThrowAnException_whenStackIsEmpty() {
+        MyStack<String> stack = new MyStack<>();
+        stack.peek();
+    }
+
 }
