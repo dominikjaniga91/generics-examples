@@ -3,6 +3,8 @@ package stack;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.EmptyStackException;
+
 @Test(groups = "MyStack")
 public class MyStackTest {
 
@@ -57,5 +59,22 @@ public class MyStackTest {
         String actual = stack.pop();
 
         Assert.assertEquals(actual, STACK_ELEMENT, "Push method should return added element");
+    }
+
+    @Test
+    public void isEmptyShouldReturnTrue_afterPopElementFromMyStack() {
+        MyStack<String> stack = new MyStack<>();
+        stack.push(STACK_ELEMENT);
+        stack.pop();
+
+        boolean actual = stack.isEmpty();
+
+        Assert.assertTrue(actual, "Stack should be empty");
+    }
+
+    @Test(expectedExceptions = EmptyStackException.class)
+    public void popShouldThrowAnException_whenStackIsEmpty() {
+        MyStack<String> stack = new MyStack<>();
+        stack.pop();
     }
 }

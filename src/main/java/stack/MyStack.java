@@ -1,5 +1,7 @@
 package stack;
 
+import java.util.EmptyStackException;
+
 public class MyStack<E> {
 
     private E[] elements;
@@ -12,7 +14,7 @@ public class MyStack<E> {
     }
 
     public boolean isEmpty() {
-        return size == 0;
+        return size == 0 && elements[size] == null;
     }
 
     public int size() {
@@ -25,6 +27,11 @@ public class MyStack<E> {
     }
 
     public E pop() {
-        return elements[--size];
+        if (size == 0) {
+            throw new EmptyStackException();
+        }
+        E element = elements[--size];
+        elements[size] = null;
+        return element;
     }
 }
