@@ -87,4 +87,15 @@ public class MyStackTest {
         MyStack<String> stack = new MyStack<>();
         stack.pop();
     }
+
+    @Test
+    public void peekShouldReturnElement_afterAddToMyStack() {
+        MyStack<String> stack = new MyStack<>();
+        stack.push(STACK_ELEMENT);
+
+        String actual = stack.peek();
+
+        Assert.assertEquals(actual, STACK_ELEMENT, "Peek method should return last element");
+    }
+
 }

@@ -34,4 +34,8 @@ public class MyStack<E> {
         elements[size] = null;
         return element;
     }
+
+    public E peek() {
+        return elements[size - 1];
+    }
 }
