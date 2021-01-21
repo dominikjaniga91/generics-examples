@@ -51,6 +51,16 @@ public class MyStackTest {
         Assert.assertFalse(actual, "The Stack should not be empty");
     }
 
+
+    @Test
+    public void stackSizeShouldBeEqualsToOne_afterPushElement() {
+        MyStack<String> stack = new MyStack<>();
+        stack.push(STACK_ELEMENT);
+        int actual = stack.size();
+
+        Assert.assertEquals(actual, 1, "The Stack should have size equals to one");
+    }
+
     @Test
     public void popShouldReturnElement_afterAddToMyStack() {
         MyStack<String> stack = new MyStack<>();
