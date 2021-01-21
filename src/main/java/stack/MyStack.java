@@ -18,4 +18,9 @@ public class MyStack<E> {
     public int size() {
         return size;
     }
+
+    public E push(E stackElement) {
+        elements[size++] = stackElement;
+        return stackElement;
+    }
 }
