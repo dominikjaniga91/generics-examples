@@ -71,4 +71,18 @@ public class PairTest {
         //then
         Assert.assertNotEquals(first, second);
     }
+
+    @Test
+    public void compareShouldReturnZero_whenPairsAreTheSame() {
+        //given
+        Pair<String, String> first = new Pair<>("Left", "Right");
+        Pair<String, String> second = new Pair<>("Left", "Right");
+        int expected = 0;
+
+        //when
+        int actual = first.compareTo(second);
+
+        //then
+        Assert.assertEquals(actual, expected);
+    }
 }

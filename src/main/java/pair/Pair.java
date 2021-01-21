@@ -2,7 +2,7 @@ package pair;
 
 import java.util.Objects;
 
-class Pair<L, R>  {
+class Pair<L extends Comparable<L>, R extends Comparable<R>> implements Comparable<Pair<L, R>> {
 
     private final L left;
     private final R right;
@@ -38,5 +38,12 @@ class Pair<L, R>  {
     @Override
     public String toString() {
         return String.format("Pair: %s %s", left, right);
+    }
+
+    @Override
+    public int compareTo(Pair<L, R> o) {
+        int left = this.left.compareTo(o.left);
+        int right = this.right.compareTo(o.right);
+        return Integer.compare(left, right);
     }
 }
