@@ -90,4 +90,16 @@ public class CacheTest {
         Assert.assertEquals(actual, value, "Seek should return value equals to " + value);
     }
 
+    @Test
+    public void seekShouldReturnNull_whenKeyDoesNoeExist() {
+
+        //given
+        Cache<Integer, Integer> cache = new Cache<>(5);
+
+        //when
+        Integer actual = cache.seek(5);
+
+        //then
+        Assert.assertNull(actual, "Seek should return value equals to -1");
+    }
 }
