@@ -41,4 +41,14 @@ public class PairTest {
         //then
         Assert.assertEquals(first, second);
     }
+
+    @Test
+    public void checkIfTwoNotTheSamePairsAreDifferent() {
+        //given
+        Pair<String, String> first = new Pair<>("Left", "Right");
+        Pair<String, String> second = new Pair<>("Right", "Left");
+
+        //then
+        Assert.assertNotEquals(first, second);
+    }
 }
