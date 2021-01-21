@@ -23,4 +23,8 @@ public class MyStack<E> {
         elements[size++] = stackElement;
         return stackElement;
     }
+
+    public E pop() {
+        return elements[--size];
+    }
 }

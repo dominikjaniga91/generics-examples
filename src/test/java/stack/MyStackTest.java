@@ -49,4 +49,13 @@ public class MyStackTest {
         Assert.assertFalse(actual, "The Stack should not be empty");
     }
 
+    @Test
+    public void popShouldReturnElement_afterAddToMyStack() {
+        MyStack<String> stack = new MyStack<>();
+        stack.push(STACK_ELEMENT);
+
+        String actual = stack.pop();
+
+        Assert.assertEquals(actual, STACK_ELEMENT, "Push method should return added element");
+    }
 }
