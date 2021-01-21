@@ -23,7 +23,6 @@ public class MyStack<E> {
     }
 
     public E push(E stackElement) {
-        System.out.println(" size " + size + " length " + elements.length);
         if (size == elements.length) {
             increaseCapacity();
         }
