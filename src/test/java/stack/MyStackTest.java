@@ -16,4 +16,14 @@ public class MyStackTest {
         //then
         Assert.assertTrue(actual, "Stack should be empty");
     }
+
+
+    @Test
+    public void newStackShouldHaveSizeEqualsToZero() {
+        MyStack<String> stack = new MyStack<>();
+
+        int actual = stack.size();
+
+        Assert.assertEquals(actual, 0, "The Stack should have size equals to zero");
+    }
 }
