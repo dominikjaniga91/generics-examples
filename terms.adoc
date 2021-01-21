@@ -1,36 +1,83 @@
-Generic type ::
+Generic type :: A Generic type is a class or interface that is parametrized over types. A class or interface declaration that is generic
+                defines a set of parameterized types.
 
-Generic method ::
+Generic method :: This is a method that introduce their own type parameter. Type parameter's scope is limited to rhe method where is is declared.
+                  It is allowed to declare generic method in generic class as well as in ordinary classes.
 
-Diamond operator :: 
+Diamond operator :: It is an informal name of empty pair of angle brackets that replace the type argument required to invoke generic class constructor.
+                    The Java compiler can determine, or infer, the type arguments from the context. We can use diamond since Java 7.
 
-Type parameter ::
+Type parameter :: According to Java Language Specification 15, it is unqualified identifier that is used as a type in class,
+                  interface, methods and constructor bodies. In other words, it is a symbol provided between angle brackets after generic type’s name.
+                  By convention, type parameter names are single, uppercase letters. The most commonly used type parameter names are: T - type, K - key
+                  E - element (used extensively by the JCF), N - number, S, U, V etc. - 2nd, 3rd, 4th types.
 
-Parameterized type ::
+Parameterized type :: A parameterized type is an instantiation of a generic type with actual type arguments.
 
-Raw type ::
+Raw type :: It is an instance of generic type without actual type parameter.
+            Raw types behave as if all of the generic type information were erased from the type declaration.
+            When using raw types, we essentially get pre-generics behavior, we lose all the safety and expressiveness benefits of generics.
+            For backward compatibility, assigning a parameterized type to its raw type is allowed.
+            There is one minor exception when it comes to raw type - you must use raw types in class literal, for instance List.class.
+            The following code is not valid - List<String>.class.
 
-Type erasure ::
 
-Bounded type parameters :: 
+Type erasure :: According to JLS 4.6 the type erasure is a mapping from types (possibly including parameterized types and
+                type variables) to types (that are never parameterized types or type variables). In other words it is a process
+                that maps a parameterized type (or method) to its unique byte code representation by eliding type parameters and arguments.
 
-Type inference ::
+Bounded type parameters :: It is a type parameter with bound. In other words it is a restriction for type parameter.
+                            The syntax looks like this: class MyClass<T extends A & B & C>. We need to remember that class in java can e
+                            xtend only one class and implements many interfaces, and class must be the firs bound.
+                            In this example A can be a class or interface, B and C must be the interfaces.
 
-Target typing :: 
 
-Wildcards ::
+Type inference :: It is a Java compiler’s ability to look at each method invocation and corresponding declaration to
+                  determine the type argument that make the invocation applicable. UtilClazz.<Integer>compare(p1, p2) - in this example
+                  the type argument can be omitted and a Java compiler automatically infers that the type parameter is Integer.
+                  You can also replace the type arguments required to invoke the constructor of a generic class with an empty pair of angle brackets.
 
-Bounded wildcards ::
+Target typing :: is the process that infer the type parameters of a generic method invocation. The target type of an expression is the data
+                 type that the Java compiler expects depending on where the expression appears.
 
-Unbounded wildcards ::
+Wildcards :: Wildcard is a question mark (?) that represent an unknown type. For instance List<?> is called a list of unknown type.
+             Can be used as the type of a parameter, field, or local variable. We can use wild card also as a return type. We cannot use
+             wildcard as a type argument for a generic method invocation, a generic class instance creation, or a supertype.
 
-Erasure of generic types ::
+Bounded wildcards :: Is a question mark (?) that represent an unknown type with some restriction. We can specify lower-bounded
+                    and upper-bounded wildcard. A lower-bounded wildcard is restricted to specific type of a super type.
+                    A lower bounded wildcard is expressed using the wildcard character ('?'), following by the super keyword,
+                    followed by its lower bound: <? super A>. To declare an upper-bounded wildcard, use the wildcard character ('?'),
+                    followed by the extends keyword, followed by its upper bound. In this context "extends" keyword is used for extend class and implement interface.
 
-Generic methods ::
+Unbounded wildcards :: It is a wildcard without any restriction. We can use unbounded wildcard in two scenarios.
 
-Bridge methods ::
+Erasure of generic types :: Is it a process in which java compiler will replace type parameter with its first bound or
+                            Object if type parameter is unbounded. For instance <T> will be replaced with Object, <T extends Number> will be replaced with Number.
+                            Produced bytecode will contains only ordinary classes, interfaces and methods.
+                            In type erasure java compiler also insert type casts if necessary to preserve type safety. Whenever you use a generic methods or access
+                            the generic field the casting occurs. When type parameter has more bounds, then java compiler also insert cast to the
+                            second bound if necessary. The java compiler also generates the bridge method to preserve polymorphism in extended generic types.
+                            Erasure is what allowed generic types to interoperate freely with legacy code that did not use generics.
 
-Non-reifiable types ::
+Generic methods :: This is a method that introduce their own type parameter. Type parameter's scope is limited to rhe method where is is declared.
+                   It is allowed to declare generic method in generic class as well as in ordinary classes.
 
-@SafeVarargs :: 
+Bridge methods :: Bridge method is a synthetic methods that java compiler generates to preserve polymorphism when class or interface
+                  extends a another generic class or implements generic interface. Type erasure changes the signature of the superclass's methods.
+                  The subclass's methods are no longer overriding versions of the superclass's method after type erasure.
+                  In order to make overriding work the compiler adds bridge methods. The compiler must add bridge methods even if the subclass
+                  does not override the inherited methods.
+
+Non-reifiable types :: It is a type whose type information is not fully available at runtime.
+                       In other words this is a type whose runtime representation has less information than compile-time representation.
+                       Examples of non-reifiable types are List<String> and List<Number>. The opposite of non-reifiable types are reifiable types.
+                       Reifiable type is a reifiable type is a type whose type information is fully available at runtime.
+                       This includes primitives, non-generic types, raw types, and invocations of unbound wildcards.
+
+
+@SafeVarargs :: It is annotation use to mark generic method that take varargs as parameter. When you mix generics and
+                varargs the java compiler will display a warning about possibly heap pollution. This is because varargs under the hood is
+                an ordinary array, and we cannot create an instance of array of type parameter like new E[]. However varargs is very useful
+                so the Java designers opt to live with this inconsistency.
 
