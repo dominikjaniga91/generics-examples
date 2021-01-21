@@ -1,5 +1,6 @@
 package stack;
 
+import java.util.Arrays;
 import java.util.EmptyStackException;
 
 public class MyStack<E> {
@@ -22,6 +23,10 @@ public class MyStack<E> {
     }
 
     public E push(E stackElement) {
+        System.out.println(" size " + size + " length " + elements.length);
+        if (size == elements.length) {
+            increaseCapacity();
+        }
         elements[size++] = stackElement;
         return stackElement;
     }
@@ -40,5 +45,9 @@ public class MyStack<E> {
             throw new EmptyStackException();
         }
         return elements[size - 1];
+    }
+
+    private void increaseCapacity() {
+        elements = Arrays.copyOf(elements, size + size/2);
     }
 }

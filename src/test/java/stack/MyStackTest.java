@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.EmptyStackException;
+import java.util.stream.IntStream;
 
 @Test(groups = "MyStack")
 public class MyStackTest {
@@ -102,6 +103,16 @@ public class MyStackTest {
     public void peekShouldThrowAnException_whenStackIsEmpty() {
         MyStack<String> stack = new MyStack<>();
         stack.peek();
+    }
+
+    @Test
+    public void shouldReturn25_afterIncreaseStackCapacity() {
+        MyStack<Integer> stack = new MyStack<>();
+        IntStream.rangeClosed(1, 25).forEach(stack::push);
+
+        int actual = stack.size();
+
+        Assert.assertEquals(actual, 25, "Stack capacity did not increase");
     }
 
 }
