@@ -3,6 +3,8 @@ package lru.cache;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.stream.IntStream;
+
 public class CacheTest {
 
     @Test
@@ -42,5 +44,19 @@ public class CacheTest {
 
         //then
         Assert.assertEquals(actual, 1, "Store should return value after add pair");
+    }
+
+    @Test
+    public void shouldReturnSizeFive_afterStoreFivePairsToCache() {
+
+        //given
+        Cache<Integer, Integer> cache = new Cache<>(10);
+
+        //when
+        IntStream.rangeClosed(1, 5).forEach(i -> cache.store(i, i));
+        int actual = cache.size();
+
+        //then
+        Assert.assertEquals(actual, 5, "Store should return size equals to five ");
     }
 }
