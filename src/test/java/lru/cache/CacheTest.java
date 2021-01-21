@@ -59,4 +59,18 @@ public class CacheTest {
         //then
         Assert.assertEquals(actual, 5, "Store should return size equals to five ");
     }
+
+    @Test
+    public void shouldReturnSizeFive_afterStore10PairsToCache() {
+
+        //given
+        Cache<Integer, Integer> cache = new Cache<>(5);
+
+        //when
+        IntStream.rangeClosed(1, 10).forEach(i -> cache.store(i, i));
+        int actual = cache.size();
+
+        //then
+        Assert.assertEquals(actual, 5, "Store should return size equals to five ");
+    }
 }

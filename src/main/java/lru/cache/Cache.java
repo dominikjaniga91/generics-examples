@@ -21,6 +21,13 @@ class Cache<K, V> {
     }
 
     public void store(K key, V value) {
+        if (this.cache.containsKey(key)) {
+            this.cache.remove(key);
+        } else if (this.cache.size() == this.capacity) {
+            Iterator<K> it = this.cache.keySet().iterator();
+            it.next();
+            it.remove();
+        }
         cache.put(key, value);
     }
 }
