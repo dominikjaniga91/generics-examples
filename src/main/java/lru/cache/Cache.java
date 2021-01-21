@@ -15,4 +15,8 @@ class Cache<K, V> {
     public boolean empty() {
         return cache.isEmpty();
     }
+
+    public int size() {
+        return cache.size();
+    }
 }
