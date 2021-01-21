@@ -9,10 +9,12 @@
         <groups>
             <run>
                 <include name="MyStack"/>
+                <include name="LRUCache"/>
             </run>
         </groups>
         <classes>
             <class name="stack.MyStackTest"/>
+            <class name="lru.cache.CacheTest"/>
         </classes>
     </test>
 </suite>
