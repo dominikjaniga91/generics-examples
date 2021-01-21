@@ -38,4 +38,13 @@ class Cache<K, V> {
     public K firstKey() {
         return cache.keySet().stream().findFirst().orElse(null);
     }
+
+    public K lastKey() {
+        Iterator<K> iterator = cache.keySet().iterator();
+        K last = null;
+        while (iterator.hasNext()) {
+            last = iterator.next();
+        }
+        return last;
+    }
 }

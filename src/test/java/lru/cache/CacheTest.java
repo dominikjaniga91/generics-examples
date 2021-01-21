@@ -106,7 +106,7 @@ public class CacheTest {
 
 
     @Test
-    public void shouldReturnFirstKeyEqualsToSix_afterAddFIvePairs() {
+    public void shouldReturnFirstKeyEqualsToSix_afterAddTenPairs() {
 
         //given
         Cache<Integer, Integer> cache = new Cache<>(5);
@@ -118,5 +118,20 @@ public class CacheTest {
 
         //then
         Assert.assertEquals(actual, expected, "First key should be equals to 6");
+    }
+
+    @Test
+    public void shouldReturnLastKeyEqualsToTen_afterAddTenPairs() {
+
+        //given
+        Cache<Integer, Integer> cache = new Cache<>(5);
+        int expected = 10;
+
+        //when
+        IntStream.rangeClosed(1, 10).forEach(i -> cache.store(i, i));
+        int actual = cache.lastKey();
+
+        //then
+        Assert.assertEquals(actual, expected, "Last key should be equals to 10");
     }
 }
