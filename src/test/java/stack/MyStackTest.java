@@ -3,6 +3,7 @@ package stack;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+@Test(groups = "MyStack")
 public class MyStackTest {
 
     @Test
