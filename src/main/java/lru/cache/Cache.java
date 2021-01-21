@@ -19,4 +19,8 @@ class Cache<K, V> {
     public int size() {
         return cache.size();
     }
+
+    public void store(K key, V value) {
+        cache.put(key, value);
+    }
 }

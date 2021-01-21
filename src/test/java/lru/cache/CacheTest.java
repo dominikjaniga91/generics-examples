@@ -3,8 +3,6 @@ package lru.cache;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.LinkedHashMap;
-
 public class CacheTest {
 
     @Test
@@ -30,5 +28,19 @@ public class CacheTest {
 
         //then
         Assert.assertEquals(actual, 0, "Store should return value after add pair");
+    }
+
+    @Test
+    public void shouldReturnSizeOne_afterStorePairToCache() {
+
+        //given
+        Cache<Integer, Integer> cache = new Cache<>(10);
+
+        //when
+        cache.store(1, 2);
+        int actual = cache.size();
+
+        //then
+        Assert.assertEquals(actual, 1, "Store should return value after add pair");
     }
 }
