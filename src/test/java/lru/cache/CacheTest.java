@@ -102,4 +102,20 @@ public class CacheTest {
         //then
         Assert.assertNull(actual, "Seek should return value equals to -1");
     }
+
+
+    @Test
+    public void shouldReturnFirstKeyEqualsToSix_afterAddFIvePairs() {
+
+        //given
+        Cache<Integer, Integer> cache = new Cache<>(5);
+        int expected = 6;
+
+        //when
+        IntStream.rangeClosed(1, 10).forEach(i -> cache.store(i, i));
+        int actual = cache.firstKey();
+
+        //then
+        Assert.assertEquals(actual, expected, "First key should be equals to 6");
+    }
 }

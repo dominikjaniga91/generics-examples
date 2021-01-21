@@ -5,7 +5,7 @@ import java.util.*;
 class Cache<K, V> {
 
     private final int capacity;
-    private LinkedHashMap<K,V> cache;
+    private Map<K,V> cache;
 
     public Cache(int capacity) {
         this.cache = new LinkedHashMap<>(capacity);
@@ -33,5 +33,9 @@ class Cache<K, V> {
 
     public V seek(K key) {
         return cache.get(key);
+    }
+
+    public K firstKey() {
+        return cache.keySet().stream().findFirst().orElse(null);
     }
 }
