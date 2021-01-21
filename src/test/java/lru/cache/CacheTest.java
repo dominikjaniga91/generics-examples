@@ -73,4 +73,21 @@ public class CacheTest {
         //then
         Assert.assertEquals(actual, 5, "Store should return size equals to five ");
     }
+
+    @Test
+    public void seekShouldReturnValueAssociatedWithKey() {
+
+        //given
+        Cache<Integer, Integer> cache = new Cache<>(5);
+        int key = 5;
+        int value = 10;
+        cache.store(key, value);
+
+        //when
+        int actual = cache.seek(key);
+
+        //then
+        Assert.assertEquals(actual, value, "Seek should return value equals to " + value);
+    }
+
 }
