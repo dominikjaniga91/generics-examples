@@ -31,4 +31,14 @@ public class PairTest {
         //then
         Assert.assertEquals(actual, expected);
     }
+
+    @Test
+    public void checkIfTwoTheSamePairsAreEquals() {
+        //given
+        Pair<String, String> first = new Pair<>("Left", "Right");
+        Pair<String, String> second = new Pair<>("Left", "Right");
+
+        //then
+        Assert.assertEquals(first, second);
+    }
 }
