@@ -132,4 +132,14 @@ public class CacheTest {
         //then
         Assert.assertNull(actual, "Key should be equals to null");
     }
+
+    @Test
+    public void lastKeyShouldReturnNull_whenCacheIsEmpty() {
+
+        //when
+        Integer actual = cache.lastKey();
+
+        //then
+        Assert.assertNull(actual, "Key should be equals to null");
+    }
 }
