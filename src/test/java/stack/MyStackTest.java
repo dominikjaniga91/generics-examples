@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import java.util.EmptyStackException;
 import java.util.stream.IntStream;
 
-@Test(groups = "MyStack")
+@Test(groups = "Teacher")
 public class MyStackTest {
 
     private static final String STACK_ELEMENT = "stack element";

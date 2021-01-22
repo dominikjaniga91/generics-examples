@@ -8,13 +8,13 @@
     <test name="MyStackSuite">
         <groups>
             <run>
-                <include name="MyStack"/>
-                <include name="LRUCache"/>
+                <include name="Teacher"/>
             </run>
         </groups>
         <classes>
             <class name="stack.MyStackTest"/>
             <class name="lru.cache.CacheTest"/>
+            <class name="pair.PairTest"/>
         </classes>
     </test>
 </suite>

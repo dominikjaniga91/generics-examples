@@ -3,7 +3,7 @@ package pair;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-@Test(groups = "Pair")
+@Test(groups = "Teacher")
 public class PairTest {
 
     @Test

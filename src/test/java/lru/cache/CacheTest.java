@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 import java.util.stream.IntStream;
 
-@Test(groups = "LRUCache")
+@Test(groups = "Teacher")
 public class CacheTest {
 
     private Cache<Integer, Integer> cache;
