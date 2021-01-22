@@ -15,6 +15,8 @@
             <class name="stack.MyStackTest"/>
             <class name="lru.cache.CacheTest"/>
             <class name="pair.PairTest"/>
+            <class name="generic.methods.PrinterTest"/>
+            <class name="generic.methods.ArgumentsTest"/>
         </classes>
     </test>
 </suite>
