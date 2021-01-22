@@ -9,7 +9,7 @@ import java.util.EmptyStackException;
  * @author Dominik Janiga
  * @version 0.1
  */
-public class MyStack<E> {
+class MyStack<E> {
 
     private E[] elements;
     private static final int INITIAL_CAPACITY = 20;
@@ -24,7 +24,7 @@ public class MyStack<E> {
      * </pre>
      */
     @SuppressWarnings("unchecked")
-    public MyStack() {
+    MyStack() {
         this.elements = (E[]) new Object[INITIAL_CAPACITY];
     }
 
@@ -34,14 +34,14 @@ public class MyStack<E> {
      * @return  {@code true} if internal array has no elements and size is equals to zero,
      *          otherwise return {@code false}
      */
-    public boolean isEmpty() {
+    boolean isEmpty() {
         return size == 0 && elements[size] == null;
     }
 
     /**
      * @return current size of an array
      */
-    public int size() {
+    int size() {
         return size;
     }
 
@@ -52,7 +52,7 @@ public class MyStack<E> {
      * @param   stackElement   the element to be pushed onto this stack.
      * @return  the {@code stackElement} argument.
      */
-    public E push(E stackElement) {
+    E push(E stackElement) {
         if (size == elements.length) {
             increaseCapacity();
         }
@@ -67,7 +67,7 @@ public class MyStack<E> {
      * @return  The element at the top of this stack (the last item).
      * @throws  EmptyStackException  if this stack is empty.
      */
-    public E pop() {
+    E pop() {
         if (size == 0) {
             throw new EmptyStackException();
         }
@@ -82,7 +82,7 @@ public class MyStack<E> {
      * @return  the last element of this stack
      * @throws  EmptyStackException  if this stack is empty.
      */
-    public E peek() {
+    E peek() {
         if (size == 0) {
             throw new EmptyStackException();
         }

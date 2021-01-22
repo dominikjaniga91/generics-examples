@@ -5,7 +5,7 @@ import java.util.Map;
 
 class MapCreator {
 
-    public static <K,V> Map<K,V> create(K key, V value) {
+    static <K,V> Map<K,V> create(K key, V value) {
         return Collections.singletonMap(key, value);
     }
 }

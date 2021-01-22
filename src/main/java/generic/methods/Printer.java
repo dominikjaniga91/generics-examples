@@ -13,7 +13,7 @@ class Printer {
      *
      * @param elements the list of unknown type.
      */
-    public static void printMe(List<?> elements) {
+    static void printMe(List<?> elements) {
         elements.forEach(System.out::println);
     }
 }
