@@ -41,9 +41,9 @@ class Pair<L extends Comparable<L>, R extends Comparable<R>> implements Comparab
     }
 
     @Override
-    public int compareTo(Pair<L, R> o) {
-        int left = this.left.compareTo(o.left);
-        int right = this.right.compareTo(o.right);
+    public int compareTo(Pair<L, R> other) {
+        int left = this.left.compareTo(other.left);
+        int right = this.right.compareTo(other.right);
         int result = left + right;
         return Integer.compare(result, 0);
     }
