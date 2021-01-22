@@ -30,7 +30,10 @@ class Cache<K, V> {
     }
 
     V seek(K key) {
-        return cache.get(key);
+        V value = cache.get(key);
+        cache.remove(key);
+        cache.put(key, value);
+        return value;
     }
 
     K firstKey() {

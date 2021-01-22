@@ -142,4 +142,19 @@ public class CacheTest {
         //then
         Assert.assertNull(actual, "Key should be equals to null");
     }
+
+    @Test
+    public void seekShouldReturnValueAndMoveEntryToHead() {
+
+        //given
+        IntStream.rangeClosed(1, 5).forEach(i -> cache.store(i, i));
+        int expected = 3;
+        cache.seek(3);
+
+        //when
+        int actual = cache.lastKey();
+
+        //then
+        Assert.assertEquals(actual, expected, "Key should be equals to null");
+    }
 }
