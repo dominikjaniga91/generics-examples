@@ -100,4 +100,17 @@ public class PairTest {
         Assert.assertEquals(actual, expected);
     }
 
+    @Test
+    public void compareShouldReturnMinusOne_whenSecondPairIsGreater() {
+        //given
+        Pair<Integer, Integer> first = new Pair<>(1, 1);
+        Pair<Integer, Integer> second = new Pair<>(3, 3);
+        int expected = -1;
+
+        //when
+        int actual = first.compareTo(second);
+
+        //then
+        Assert.assertEquals(actual, expected);
+    }
 }
