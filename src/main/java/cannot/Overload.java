@@ -12,11 +12,11 @@ class Overload<T,E> {
     }
 
 
-    <S> void cannotOverdloadGenericMethod(S s) {
+    <S> void cannotOverloadGenericMethod(S s) {
 
     }
 
-    <U> void cannotOverdloadGenericMethod(U u) {
+    <U> void cannotOverloadGenericMethod(U u) {
 
     }
 
