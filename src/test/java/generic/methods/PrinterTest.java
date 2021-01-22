@@ -12,7 +12,7 @@ import java.util.List;
 public class PrinterTest {
 
     @Test
-    public void drawShouldPrintValidHeader() {
+    public void printMeShouldPrintListOfPeopleToConsole() {
         //given
         var people = List.of(new Person(1, "Jan", "Kowalski", LocalDate.now()),
                              new Person(2, "Marek", "Kowalski", LocalDate.now()));
