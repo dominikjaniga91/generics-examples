@@ -13,11 +13,11 @@ class Pair<L extends Comparable<L>, R extends Comparable<R>> implements Comparab
     }
 
 
-    public L getLeft() {
+    L getLeft() {
         return left;
     }
 
-    public R getRight() {
+    R getRight() {
         return right;
     }
 
